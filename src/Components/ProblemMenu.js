@@ -69,7 +69,7 @@ const problems = [
     },
 ]
 
-//INPUT: string indicates a type of question (Creative, Argumentative, Analysis, Poetry)
+//INPUT: string indicates a type of question (Creative, Argumentative, Analysis)
 //OUTPUT: Corresponding color (red for argue, blue for analysis, green for creative)
 function getColorFromType(type) {
     switch (type) {
@@ -79,8 +79,6 @@ function getColorFromType(type) {
             return '#00DD00'
         case 'Analysis':
             return '#0000FF'
-        case 'Poetry':
-            return '#F5F5DC'
         default:
             return '#000000'
     }
@@ -118,10 +116,10 @@ export default function ProblemMenu () {
     useEffect(
         //Will eventually remove setTimout, have it to simulate loading time
         () => {
-            setTimeout(() =>{
-            setLoading(false);
-            setFilteredResults(problems)
-            setProblemsList(problems)
+            setTimeout(() => {
+                setLoading(false);
+                setFilteredResults(problems)
+                setProblemsList(problems)
             }
             , 
             1000)
@@ -143,7 +141,7 @@ export default function ProblemMenu () {
                 }}>
 
                     {/*make anchor lead to problem page on click, will pass question number as url parameter*/}
-                    <a className = 'problemAnchor' href = {`/problem/:${item.questionNum}`}>
+                    <a className = 'problemAnchor' href = {`/:${item.questionNum}`}>
                         <span className = 'problemsListItemText'>
                             {`${item.questionNum}. ${item.name}`}
                         </span>

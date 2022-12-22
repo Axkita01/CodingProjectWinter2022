@@ -1,3 +1,5 @@
+import '../Styles/Navbar.css'
+
 export default function Navbar() {
     return <nav className = "nav">
         <a href = "/" className = "site-title">Writo</a>
@@ -6,7 +8,7 @@ export default function Navbar() {
                 <a href = "/explore">Explore</a>
             </li>
             <li>
-                <a href = "/problems">Problems</a>
+                <a href = "/problem">Problems</a>
             </li>
         </ul>
     </nav>
