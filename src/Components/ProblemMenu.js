@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useMemo} from 'react'
 import '../Styles/ProblemMenu.css'
+import { getColorFromType } from '../Functions/functions'
 
 
 
@@ -69,20 +70,6 @@ const problems = [
     },
 ]
 
-//INPUT: string indicates a type of question (Creative, Argumentative, Analysis)
-//OUTPUT: Corresponding color (red for argue, blue for analysis, green for creative)
-function getColorFromType(type) {
-    switch (type) {
-        case 'Argumentative':
-            return '#FF0000'
-        case 'Creative':
-            return '#00DD00'
-        case 'Analysis':
-            return '#0000FF'
-        default:
-            return '#000000'
-    }
-}
 
 export default function ProblemMenu () {
     const placeHolder = [null, null, null, null, null, null, null, null, null, null, null]
@@ -111,8 +98,21 @@ export default function ProblemMenu () {
 
         setFilteredResults(temp)
     }
-    //Eventually useEffect will fetch data
     
+    //INPUT: value selected from dropdown
+    //OUTPUT: Filters results from the dropdown menu
+    function filterResultsFromDropDown(value) {
+        if (value === 'all') {setFilteredResults(problemsList); return;}
+        let temp = problemsList.slice()
+        temp = temp.filter(
+            (item) => {
+                return item.type === value
+            }
+        )
+        setFilteredResults(temp)
+    }
+
+    //Eventually useEffect will fetch data
     useEffect(
         //Will eventually remove setTimout, have it to simulate loading time
         () => {
@@ -175,6 +175,18 @@ export default function ProblemMenu () {
                     <button onClick = {() => filterResults(filter)}>
                         Submit
                     </button>
+                </span>
+                <span style = {{marginRight: '1vw'}}>
+                    <select 
+                    className='menuDropdown'
+                    name = 'Question Type' onChange = {(e) => {
+                        filterResultsFromDropDown(e.target.value)
+                    }}>
+                        <option value = 'all'>Show All Problems</option>
+                        <option value = 'Argumentative'>Argumentative</option>
+                        <option value = 'Creative'>Creative</option>
+                        <option value = 'Analysis'>Analysis</option>
+                    </select>
                 </span>
             </div>
             {

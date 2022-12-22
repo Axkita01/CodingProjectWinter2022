@@ -1,0 +1,22 @@
+.problemDescContainer {
+    width: 100%;
+    height: 100%
+}
+
+.problemDescInnerContainer {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 100%;
+    
+}
+
+.problemDescText {
+    display: flex;
+    width: 60%;
+    justify-content: left;
+    align-items:flex-start !important;
+}
+
+
+

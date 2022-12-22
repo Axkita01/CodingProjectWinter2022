@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import './App.css';
 import Problems from './Pages/Problems';
+import ProblemDesc from './Components/ProblemDesc';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route element = {<Problems/>} path = '/problem'/>
+          <Route element = {<ProblemDesc/>} path = '/desctest'/>
         </Routes>
       </Router>
     </div>
