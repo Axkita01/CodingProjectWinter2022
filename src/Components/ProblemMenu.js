@@ -69,7 +69,7 @@ const problems = [
     },
 ]
 
-//INPUT: string indicates a type of question (Creative, Argumentative, Analysis)
+//INPUT: string indicates a type of question (Creative, Argumentative, Analysis, Poetry)
 //OUTPUT: Corresponding color (red for argue, blue for analysis, green for creative)
 function getColorFromType(type) {
     switch (type) {
@@ -79,6 +79,8 @@ function getColorFromType(type) {
             return '#00DD00'
         case 'Analysis':
             return '#0000FF'
+        case 'Poetry':
+            return '#F5F5DC'
         default:
             return '#000000'
     }
