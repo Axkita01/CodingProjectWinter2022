@@ -1,0 +1,54 @@
+@keyframes loadingMenuItem {
+    0% {opacity: 1;}
+    50% {opacity: .3;}
+    100% {opacity: 1;}
+}
+
+.searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 3%;
+    padding-bottom: .5vh;
+    padding-top: .5vh;
+    border-bottom-style: solid;
+    border-color: lightgray;
+}
+
+.problemsListItem {
+    display: flex;
+    justify-content: flex-start;
+    height: 40px;
+    width: 50vw;
+    min-width: 300px;
+    align-items: center;
+}
+
+.problemAnchor {
+    text-decoration: none;
+    color: black;
+}
+
+.problemsListItemText {
+    margin-left: 2vw;
+    margin-right: 3vw;
+    width: 33%;
+    justify-content: flex-start;
+}
+
+.loadingMenu {
+    animation: loadingMenuItem 4s ease 0s infinite;
+}
+
+.menuContainer {
+    border-style: solid;
+    width: 50vw;
+    min-width: 300px;
+    border-radius: .1vw;
+    border-color: gray;
+    overflow-x: hidden;
+}
+
+.textInputBox {
+    width: 35%
+}
