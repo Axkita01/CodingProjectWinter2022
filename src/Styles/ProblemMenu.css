@@ -55,5 +55,8 @@
 
 .menuDropdown {
     width: 100%;
-    margin-right: 5vw;
+}
+
+.descVotes{
+    margin-left: 1vw;
 }

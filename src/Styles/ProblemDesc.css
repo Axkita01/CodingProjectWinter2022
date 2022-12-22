@@ -18,5 +18,18 @@
     align-items:flex-start !important;
 }
 
+.descVotes button {
+    width: auto;
+    border-radius: 1vw;
+    border-style: none;
+    margin-right: 1vw;
+    margin-left: .3vw;
+}
+
+.descVotes button:hover {
+    cursor: pointer;
+}
+
+
 
 

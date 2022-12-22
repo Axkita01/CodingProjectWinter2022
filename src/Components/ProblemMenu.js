@@ -87,7 +87,7 @@ export default function ProblemMenu () {
     //INPUT: filter after submission from search bar
     //OUTPUT: None, changes state and shows problems matching search query
     function filterResults(query) {
-        let temp = problemsList.slice()
+        let temp = filteredResults.slice()
         temp = temp.filter(
             (value) => {
                 return (
@@ -141,7 +141,7 @@ export default function ProblemMenu () {
                 }}>
 
                     {/*make anchor lead to problem page on click, will pass question number as url parameter*/}
-                    <a className = 'problemAnchor' href = {`/:${item.questionNum}`}>
+                    <a className = 'problemAnchor' href = {`/problem/:${item.questionNum}`}>
                         <span className = 'problemsListItemText'>
                             {`${item.questionNum}. ${item.name}`}
                         </span>
