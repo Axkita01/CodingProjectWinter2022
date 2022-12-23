@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Editor } from "react-draft-wysiwyg";
 import { EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import '../Styles/Textbox.css'
 
 export default class Textbox extends Component {
 
@@ -20,15 +21,13 @@ export default class Textbox extends Component {
         const {editorState} = this.state;
 
         return (
-            <div>
                 <Editor
                     editorState={editorState}
                     toolbarClassName="toolbarClassName"
                     wrapperClassName="wrapperClassName"
                     editorClassName="editorClassName"
                     onEditorStateChange={this.onEditorStateChange}
-                />;
-            </div>
+                />
         )
     }
 }

@@ -3,8 +3,7 @@ import Navbar from './Components/Navbar';
 import './App.css';
 import Problems from './Pages/Problems';
 import React from "react";
-import Textbox from './Components/Textbox';
-import ProblemDesc from './Components/ProblemDesc';
+import ProblemPage from './Pages/ProblemPage';
 
 
 function App() {
@@ -14,13 +13,9 @@ function App() {
       <Router>
         <Routes>
           <Route element = {<Problems/>} path = '/problem'/>
-          <Route element = {<ProblemDesc/>} path = '/problem/:id'/>
+          <Route element = {<ProblemPage/>} path = '/problem/:id'/>
         </Routes>
       </Router>
-      <div className="editor">
-        <Textbox/>
-      </div>
-      
     </div>
   );
 }

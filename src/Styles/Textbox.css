@@ -1,3 +1,4 @@
+
 .Textbox-header {
     background-color: #282c34;
     min-height: 100vh;
@@ -18,3 +19,23 @@
     margin-left: 20%;
     margin-top: 50px;
 }
+
+/*
+.editorClassName {
+    width: 100%;
+    padding: 1%;
+    height: 100%;
+}
+
+.wrapperClassName {
+    width: 60%;
+    height: 100%;
+    border-style: solid;
+    border-color: gray;
+    background-color: white;
+}
+
+.toolbarClassName {
+    width: 100%
+}
+*/
