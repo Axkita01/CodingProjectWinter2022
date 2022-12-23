@@ -2,6 +2,8 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import './App.css';
 import Problems from './Pages/Problems';
+import React from "react";
+import Textbox from './Components/Textbox';
 
 
 function App() {
@@ -13,6 +15,10 @@ function App() {
           <Route element = {<Problems/>} path = '/problem'/>
         </Routes>
       </Router>
+      <div className="editor">
+        <Textbox/>
+      </div>
+      
     </div>
   );
 }

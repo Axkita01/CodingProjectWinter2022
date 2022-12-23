@@ -52,3 +52,9 @@
 .textInputBox {
     width: 35%
 }
+
+.center {
+    margin:auto;
+    width: 50%;
+    
+}
