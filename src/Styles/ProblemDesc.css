@@ -1,0 +1,35 @@
+.problemDescContainer {
+    width: 100%;
+    height: 100%
+}
+
+.problemDescInnerContainer {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 100%;
+    
+}
+
+.problemDescText {
+    display: flex;
+    width: 60%;
+    justify-content: left;
+    align-items:flex-start !important;
+}
+
+.descVotes button {
+    width: auto;
+    border-radius: 1vw;
+    border-style: none;
+    margin-right: 1vw;
+    margin-left: .3vw;
+}
+
+.descVotes button:hover {
+    cursor: pointer;
+}
+
+
+
+

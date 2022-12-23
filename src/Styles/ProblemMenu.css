@@ -53,8 +53,18 @@
     width: 35%
 }
 
+<<<<<<< HEAD
 .center {
     margin:auto;
     width: 50%;
     
 }
+=======
+.menuDropdown {
+    width: 100%;
+}
+
+.descVotes{
+    margin-left: 1vw;
+}
+>>>>>>> 81f9205eaef4f50cd088d44e82386f0083f12906
