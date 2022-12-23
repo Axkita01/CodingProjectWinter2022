@@ -3,7 +3,7 @@
 import React, {useState, useEffect} from 'react'
 import '../Styles/Problems.css'
 import ProblemDesc from '../Components/ProblemDesc'
-import Textbox from '../Components/Textbox'
+import Editor from '../Components/Editor'
 
 const problem_object = 
 {
@@ -31,15 +31,14 @@ const problem_object =
 
 export default function ProblemPage() {
     //current state for input on editor
-    const [currentInput, updateInput] = useState('')
     const [loading, setLoading] = useState(true)
     return (
         <div className='problemPageContainer'>
             <div className='problemPageInnerContainer'>
                 <ProblemDesc problem_object = {problem_object}/>
             </div>
-            <div  className='problemPageInnerContainer' style = {{height: '60%'}}>
-                <Textbox problem_id = {problem_object.questionNum}/>
+            <div  className='problemPageInnerContainer' style = {{height: '60vh'}}>
+                <Editor problem_id = {problem_object.questionNum}/>
             </div>
         </div>
     )
