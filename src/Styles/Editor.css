@@ -2,7 +2,6 @@
     width: 80%;
     height: 100%;
     display: flex;
-    margin-top: 1vw;
 }
 
 .editor {
@@ -12,3 +11,8 @@
     margin: 0 !important;
 }
 
+@media only screen and (max-width: 750px) {
+    .editorContain {
+        width: 80vw;
+    }
+}

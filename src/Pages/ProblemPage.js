@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react'
 import '../Styles/Problems.css'
 import ProblemDesc from '../Components/ProblemDesc'
 import Editor from '../Components/Editor'
+import MiniNavBar from '../Components/MiniNavBar'
 
 const problem_object = 
 {
@@ -37,8 +38,9 @@ export default function ProblemPage() {
             <div className='problemPageInnerContainer'>
                 <ProblemDesc problem_object = {problem_object}/>
             </div>
-            <div  className='problemPageInnerContainer' style = {{height: '60vh'}}>
-                <Editor problem_id = {problem_object.questionNum}/>
+            <div  className='problemPageInnerContainer' style = {{flexDirection: 'column', height: '70vh'}}>
+                <MiniNavBar/>
+                <Editor problem_id = {problem_object.questionNum} className = 'editorBox'/>
             </div>
         </div>
     )

@@ -1,0 +1,39 @@
+.mini-nav-bar {
+    display: flex;
+    height: 8%;
+    width: 80%;
+    margin-top: 2vh;
+    background-color: brown;
+    justify-content: center;
+    align-items: center;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.mini-nav-bar__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    height: 80%;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 0.5vw;
+    font-size: x-small;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
+    .mini-nav-bar {
+        width: 80vw;
+    }
+
+    .mini-nav-bar__item {
+        font-size: 1vw;
+    }
+}
