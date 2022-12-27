@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route element = {<Problems/>} path = '/problem'/>
           <Route element = {<ProblemPage/>} path = '/problem/:id'/>
+          
         </Routes>
       </Router>
     </div>
