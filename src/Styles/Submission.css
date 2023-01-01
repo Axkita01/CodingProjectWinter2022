@@ -30,7 +30,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    padding-top: 6%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -42,7 +42,8 @@
 .popUpInnerContain {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 75%;
+    padding: 1%;
     background-color: white;
     align-items: flex-start;
 
@@ -54,8 +55,67 @@
     z-index: 5;
 }
 .submissionPageContainer {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
+}
+
+#authorHeader {
+    font-weight: bold;
+    font-size: 100%;
+}
+
+#descContainer {
+    font-size: 100%;
+}
+
+#submissionTextContainer {
+    overflow-y: scroll;
+    padding: 1%;
+    background-color: lightgray;
+    font-weight: 500;
+    height: 60vh
+}
+
+
+.comments {
+    height: 100vh;
+    overflow-y: scroll;
+    width: 75%;
+    background-color: white;
+}
+
+.comment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: .2vw;
+    border-bottom-style: solid;
+}
+
+.commentInnerContainer {
+    width: 100%;
+    display: flex;
+    padding: .1vh;
+    justify-content: flex-start;
+}
+
+.reply {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3%;
+    width: 100%
+}
+
+.replyInnerContainer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.exitPopupBtn {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
 }

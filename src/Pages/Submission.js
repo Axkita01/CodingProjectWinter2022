@@ -21,9 +21,27 @@ const submission =
             downvotes: 5,
             comments: [
                 {
+                    author: 'commentAuthor',
                     text: 'I commented',
                     children: [
-                        'I replied'
+                        {
+                        author: 'replierAuthor',
+                        text: 'I replied',
+                        upvotes: 0,
+                        downvotes: 0
+                        }
+                    ]
+                },
+                {
+                    author: 'commentAuthor',
+                    text: 'I commented',
+                    children: [
+                        {
+                        author: 'replierAuthor',
+                        text: 'I replied',
+                        upvotes: 0,
+                        downvotes: 0
+                        }
                     ]
                 }
             ]
@@ -38,9 +56,15 @@ const submission =
             downvotes: 5,
             comments: [
                 {
+                    author: 'commentAuthor',
                     text: 'I commented',
                     children: [
-                        'I replied'
+                        {
+                        author: 'replierAuthor',
+                        text: 'I replied',
+                        upvotes: 0,
+                        downvotes: 0
+                        }
                     ]
                 }
             ]
@@ -50,23 +74,60 @@ const submission =
 
 //Will have submission text, comments, and place to comment
 function PopUp (props) {
+    const comments = props.commentsArr.map(
+        (item, idx) => {
+            console.log(item.author)
+        return (
+            <div className = 'comment' key = {idx}>
+                <div className="commentInnerContainer">
+                    {item.author}
+                </div>
+                <div className="commentInnerContainer">
+                    {item.text}
+                </div>
+                <div className="commentInnerContainer">
+                    {
+                        item.children.map(
+                            (reply, index) => {
+                                return (
+                                    <div className = 'reply' key = {index}>
+                                        <div className="replyInnerContainer">
+                                            {reply.author}
+                                        </div>
+                                        <div className="replyInnerContainer">
+                                            {reply.text}
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        )
+                    }
+                </div>
+            </div>
+        )
+        }
+    )
     return (
     <div className = 'popUp' >
-        <div className = 'popUpInnerContain'>
-            <span>
-                {props.author}
-            </span>
+        <div className = 'popUpInnerContain' id = 'authorHeader'>
+            {props.author}
         </div>
-        <div className = 'popUpInnerContain'>
+        <div className = 'popUpInnerContain' id = 'descContainer'>
             <p>
                 {props.submitterText}
             </p>
         </div>
-        <div className="popUpInnerContain">
+        <div className="popUpInnerContain" id = 'submissionTextContainer'>
             <p>
                 {props.submissionText}
             </p>
         </div>
+        <div className="comments">
+           {comments}
+        </div>
+        <button className="exitPopupBtn" onClick = {() => props.exitFunction()}>
+            x
+        </button>
     </div>
     )
 }
@@ -74,6 +135,8 @@ function PopUp (props) {
 export default function Submission() {
     const [popUp, setPopUp] = useState(false)
     const [selected, changeSelected] = useState(null)
+    const [sorted, changeSorted] = useState(null)
+
     const questions = useMemo(() => {
         const temp = submission.submissions.map((item, index) => {
             return (
@@ -85,7 +148,9 @@ export default function Submission() {
                         <a onClick = {() => {
                             changeSelected(index)
                             setPopUp(true)
-                        }}>
+                        }}
+                        style = {{cursor: 'pointer'}}
+                        >
                             {item.title}
                         </a>
                     </div>
@@ -99,16 +164,34 @@ export default function Submission() {
             )
         })
         return temp
-    }, [])
+    }, [sorted])
     return (
         <div className="submissionPageContainer">
-            { popUp && <PopUp author = {submission.submissions[selected].author} submissionText = {submission.submissions[selected].submitterText}/>}
+            { popUp && 
+            <PopUp 
+            submissionText = {submission.submissions[selected].submissionText} 
+            author = {submission.submissions[selected].author} 
+            submitterText = {submission.submissions[selected].submitterText} 
+            commentsArr = {submission.submissions[selected].comments}
+            exitFunction = {() => setPopUp(false)}
+            />}
+            {/* 
+            Select portion does nothing right now, will add ability to change
+            sorting of submissions based on different criterea
+             */}
+            <div className = 'sortSubmissions'>
+                <select onChange = {(e) => {changeSorted(e.target.event)}}>
+                    <option value = 'Recent'>
+                        Recent
+                    </option>
+                    <option value = 'popular'>
+                        Popularity
+                    </option>
+                </select>
+            </div>
             <div className="submissionsList">
                 {questions}
             </div>
-            <button onClick = {() => {setPopUp(prev => !prev)}}>
-                Click
-            </button>
         </div>
     )
 }
