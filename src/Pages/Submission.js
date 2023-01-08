@@ -8,10 +8,11 @@ const submission =
     type: 'Argumentative',
     upvotes: 1,
     downvotes: 5,
-    questionNum: 1,
+    _id: 1,
     text: 'sample writing prompt',
     submissions: [
         {
+            _id: 1,
             submissionText: 'I answered the prompt',
             title: 'title',
             author: 'author',
@@ -21,6 +22,7 @@ const submission =
             downvotes: 5,
             comments: [
                 {
+                    _id: 1,
                     author: 'commentAuthor',
                     text: 'I commented',
                     children: [
@@ -33,6 +35,7 @@ const submission =
                     ]
                 },
                 {
+                    _id: 1,
                     author: 'commentAuthor',
                     text: 'I commented',
                     children: [
@@ -47,6 +50,7 @@ const submission =
             ]
         },
         {
+            _id: 2,
             submissionText: 'I answered the prompt',
             title: 'title',
             author: 'author',
@@ -56,8 +60,11 @@ const submission =
             downvotes: 5,
             comments: [
                 {
+                    _id: 1,
                     author: 'commentAuthor',
                     text: 'I commented',
+                    upvotes: 1,
+                    downvotes: 1,
                     children: [
                         {
                         author: 'replierAuthor',

@@ -12,7 +12,7 @@ const problem_object =
     type: 'Argumentative',
     upvotes: 1,
     downvotes: 5,
-    questionNum: 1,
+    _id: 1,
     text: 'sample writing prompt blah blah blah blah BLAH BLAH BLAH  blah blah blah blah blah blah blah blah  blah blah blah blah'
     ,
     submissions: [
@@ -40,7 +40,7 @@ export default function ProblemPage() {
             </div>
             <div  className='problemPageInnerContainer' style = {{flexDirection: 'column', height: '70vh'}}>
                 <MiniNavBar/>
-                <Editor problem_id = {problem_object.questionNum} className = 'editorBox'/>
+                <Editor problem_id = {problem_object._id} className = 'editorBox'/>
             </div>
         </div>
     )
