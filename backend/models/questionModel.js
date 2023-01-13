@@ -3,11 +3,21 @@ const submission = require('./submissionModel')
 
 const Question = new mongoose.Schema({
     _id: Number,
-    type: String,
+    qtype: String,
+    title: String,
     upvotes: Number,
     downvotes: Number,
     text: String,
-    submissions: [submission.submissionSchema]
+    submissions: [
+        {
+            title: String,
+            author: String,
+            submitterText: String,
+            date: Date,
+            upvotes: Number,
+            downvotes: Number
+        }
+    ]
 })
 
 module.exports = mongoose.model('Question', Question)

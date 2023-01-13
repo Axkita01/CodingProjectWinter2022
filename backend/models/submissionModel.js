@@ -11,7 +11,34 @@ const Submission = mongoose.Schema(
         date: Date,
         upvotes: Number,
         downvotes: Number,
-        comments: [Comment.commentSchema]
+        questionId: Number,
+        comments: [
+        {
+            author: String,
+            text: {
+                type: String,
+                required: true
+            },
+            upvotes: {
+                type: Number,
+                default: 0
+            },
+            downvotes:{
+                type: Number,
+                default: 0
+            },
+            children: [
+                {
+                  type: Array,
+                  default: [],
+                  author: String,
+                  text: String,
+                  upvotes: Number,
+                  downvotes: Number
+                }
+            ]
+        }
+        ]
     }
 )
 

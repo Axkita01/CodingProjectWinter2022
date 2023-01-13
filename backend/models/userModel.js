@@ -5,6 +5,7 @@ mongoose = require('mongoose')
 const User = new mongoose.Schema({
     _id: {type: String, required: true},
     password: {type: String, required: true},
+    name: {type: String, required: true},
     //postIds
     posts: [Number],
     //commentIds
