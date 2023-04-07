@@ -8,7 +8,7 @@ const Question = new mongoose.Schema({
     upvotes: Number,
     downvotes: Number,
     text: String,
-    submissions: [submission]
+    submissions: [submission.submissionSchema]
 })
 
 module.exports = mongoose.model('Question', Question)

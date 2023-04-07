@@ -13,6 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(express.json());
 
+
+
 app.get('/getUser', async (req, res) => {
     const id = req.query.id
     try {
@@ -74,7 +76,7 @@ app.post('/add_question', async (req, res) => {
 
     catch (err) {
         console.log(err)
-        res.send(err)
+        res.status(501).send(err)
     }
 })
 

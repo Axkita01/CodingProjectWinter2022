@@ -1,5 +1,36 @@
 const mongoose = require('mongoose')
-const Comment = require('./commentModel')
+//const Comment = require('./commentModel')
+
+const Comment = new mongoose.Schema({
+    _id: {
+        type: Number,
+        required: true
+    },
+    author: {
+        type: String,
+        required: true
+    },
+    text: {
+        type: String,
+        required: true
+    },
+    upvotes: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    downvotes:{
+        type: Number,
+        required: true,
+        default: 0
+    },
+    children: [
+        {
+          type: Array,
+          default: []  
+        }
+    ]
+})
 
 const Submission = mongoose.Schema(
     {
@@ -40,4 +71,5 @@ const Submission = mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('Submission', Submission)
+module.exports.submissionModel = mongoose.model('Submission', Submission)
+module.exports.submissionSchema = Submission
