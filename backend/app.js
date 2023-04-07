@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const User = require("./models/userModel.js")
 const Question = require("./models/questionModel.js")
+const Submission = require("./models/submissionModel.js")
 
 
 if (process.env.NODE_ENV !== 'production') {
@@ -11,6 +12,21 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(express.json());
+
+app.get('/getUser', async (req, res) => {
+    const id = req.query.id
+    try {
+        const userInfo = await User.findOne({_id: id})
+        if (userInfo === null) {
+            res.status(400).send('User not found')
+        }
+        res.send(userInfo)
+    }
+
+    catch (err) {
+        res.status(400).send(err)
+    }
+})
 
 app.post('/add_user', async (req, res) => {
     const id = Math.round((Math.random(0, 10)*1000))
@@ -20,7 +36,6 @@ app.post('/add_user', async (req, res) => {
         email: req.query.email,
         password: req.query.password,
         posts: [],
-        comments: [],
         upvotedComments: [],
         downvotedComments: [],
         upvotedPosts: [],
@@ -67,19 +82,58 @@ app.get('/get_question', async (req, res) => {
     const id = req.query.id
     try {
         const question = await Question.findOne({_id: id})
-        console.log(question)
         res.send(question)
     }
 
     catch (err) {
-        res.send(err)
+        res.status(400).send("Question Not Found")
     }
 });
 
 
+app.post('/add_submission', async (req, res) => {
+    try {
+        let id = math.round((Math.random(0, 10)*1000))
+        let IDIndatabase = Submission.findOne({_id: id})
+        while (IDIndatabase != null) {
+            id = math.round((Math.random(0, 10)*1000))
+            IDIndatabase = Submission.findOne({_id: id})
+        }
+        const submission = new Submission({
+            _id: id,
+            submissionText: req.query.submissionText,
+            title: req.query.title,
+            questionId: req.query.questionId,
+            date: Date.now(),
+            submitterText: req.query.submitterText,
+            comments: []
+        })
+        let question = Question.findById(req.query.questionId)
+        question.submissions.push(submission)
+        await question.save()
+        await submission.save()
+        res.send(`Submission added to question ${req.query.questionId}`)
+    }
+
+    catch(err) {
+        res.status(400).send("Question Submission Failed")
+    }
+})
+
+app.get('/get_submission', async (req, res) => {
+    try {
+        let submission = await Submission.findById(req.query.id)
+        res.send(submission)
+    }
+    
+    catch(err) {
+        res.status(400).send("Submission Not Found")
+    }
+})
+
 const start = async () => {
     try {
-        await mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser: true })
+        mongoose.connect(process.env.DB_URL, { useUnifiedTopology: true, useNewUrlParser: true })
         app.listen(3000, () => {console.log('Listening on port 3000')});
     }
 

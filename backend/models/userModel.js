@@ -23,8 +23,8 @@ const User = new mongoose.Schema({
     //upvotedReplyIds
     upvotedReplies: [Number],
     //downvotedReplyIds
-    downvotedReplies: [Number],
-}
+    downvotedReplies: [Number]
+    }
 )
 
 module.exports = mongoose.model('User', User)
